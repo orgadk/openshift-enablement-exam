@@ -8,6 +8,6 @@ ansible nodes -b -i hosts -m shell -a "subscription-manager repos --disable='*' 
 ansible nodes -b -i hosts -m shell -a "yum update -y && yum install -y docker wget git net-tools bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct"
 ansible 'nodes:!masters' -i hosts -b -m copy -a "src=docker-storage-setup dest=/etc/sysconfig/docker-storage-setup"
 #this is non-idempotent
-ansible 'nodes:!masters' -i hosts -b -m shell -a "yum install -y docker && docker-storage-setup"
+ansible 'nodes:!masters' -i hosts -b -m shell -a "yum install -y docker-1.12.6 && docker-storage-setup"
 ansible nodes -b -i hosts -m service -a "name=docker enabled=true state=started"
 ansible nodes -b -i hosts -m shell -a "reboot"
