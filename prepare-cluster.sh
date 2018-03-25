@@ -10,6 +10,6 @@ ansible nodes -b -i hosts -m shell -a "yum update -y"
 ansible nodes -i hosts -b -m copy -a "src=docker-storage-setup dest=/etc/sysconfig/docker-storage-setup"
 ansible nodes -b -i hosts -m shell -a "yum install -y atomic-openshift-utils"
 #this is non-idempotent
-ansible 'nodes:!masters' -i hosts -b -m shell -a "docker-storage-setup"
+ansible nodes -i hosts -b -m shell -a "docker-storage-setup"
 ansible nodes -b -i hosts -m service -a "name=docker enabled=true state=started"
 ansible nodes -b -i hosts -m shell -a "reboot"
