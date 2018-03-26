@@ -173,7 +173,7 @@ openshift_management_app_template=cfme-template
 openshift_management_storage_class=cloudprovider
 
 # checks
-openshift_disable_check=docker_storage,memory_availability,disk_availability,docker_image_availability,docker_storage_driver,package_version
+openshift_disable_check=docker_storage,memory_availability,disk_availability,docker_image_availability,docker_storage_driver,package_version,package_availability
 
 #crio
 #openshift_use_crio=true
